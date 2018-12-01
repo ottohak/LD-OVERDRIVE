@@ -1,0 +1,599 @@
+[gd_scene load_steps=4 format=2]
+
+[sub_resource type="QuadMesh" id=2]
+
+custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
+size = Vector2( 30, 30 )
+
+[sub_resource type="SpatialMaterial" id=3]
+
+render_priority = 0
+flags_transparent = false
+flags_unshaded = false
+flags_vertex_lighting = false
+flags_no_depth_test = false
+flags_use_point_size = false
+flags_world_triplanar = false
+flags_fixed_size = false
+flags_albedo_tex_force_srgb = false
+vertex_color_use_as_albedo = false
+vertex_color_is_srgb = false
+params_diffuse_mode = 0
+params_specular_mode = 0
+params_blend_mode = 0
+params_cull_mode = 0
+params_depth_draw_mode = 0
+params_line_width = 1.0
+params_point_size = 1.0
+params_billboard_mode = 0
+params_grow = false
+params_use_alpha_scissor = false
+albedo_color = Color( 0.424817, 0.449219, 0.136871, 1 )
+metallic = 0.0
+metallic_specular = 0.5
+metallic_texture_channel = 0
+roughness = 0.0
+roughness_texture_channel = 0
+emission_enabled = false
+normal_enabled = false
+rim_enabled = false
+clearcoat_enabled = false
+anisotropy_enabled = false
+ao_enabled = false
+depth_enabled = false
+subsurf_scatter_enabled = false
+transmission_enabled = false
+refraction_enabled = false
+detail_enabled = false
+uv1_scale = Vector3( 1, 1, 1 )
+uv1_offset = Vector3( 0, 0, 0 )
+uv1_triplanar = false
+uv1_triplanar_sharpness = 1.0
+uv2_scale = Vector3( 1, 1, 1 )
+uv2_offset = Vector3( 0, 0, 0 )
+uv2_triplanar = false
+uv2_triplanar_sharpness = 1.0
+proximity_fade_enable = false
+distance_fade_enable = false
+_sections_unfolded = [ "Albedo" ]
+
+[sub_resource type="CubeMesh" id=1]
+
+custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
+size = Vector3( 2, 2, 2 )
+subdivide_width = 0
+subdivide_height = 0
+subdivide_depth = 0
+
+[node name="Main" type="Node" index="0"]
+
+[node name="Camera" type="Camera" parent="." index="0"]
+
+transform = Transform( 1, 0, 0, 0, 0.498022, 0.867164, 0, -0.867164, 0.498022, 1.35788, 4.91025, 7.14608 )
+keep_aspect = 1
+cull_mask = 1048575
+environment = null
+h_offset = 0.0
+v_offset = 0.0
+doppler_tracking = 0
+projection = 0
+current = false
+fov = 70.0
+size = 1.0
+near = 0.05
+far = 100.0
+
+[node name="Ground" type="MeshInstance" parent="." index="1"]
+
+transform = Transform( 1, 0, 0, 0, -4.37114e-008, 1, 0, -1, -4.37114e-008, 0, 0, 0 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 2 )
+skeleton = NodePath("..")
+material/0 = SubResource( 3 )
+_sections_unfolded = [ "material" ]
+
+[node name="DirectionalLight" type="DirectionalLight" parent="." index="2"]
+
+transform = Transform( 0.933538, 0.307392, -0.184437, -0.030662, 0.581085, 0.813265, 0.357165, -0.753558, 0.55189, 0, 100, 0 )
+layers = 1
+light_color = Color( 1, 1, 1, 1 )
+light_energy = 1.0
+light_indirect_energy = 1.0
+light_negative = false
+light_specular = 0.5
+light_bake_mode = 1
+light_cull_mask = -1
+shadow_enabled = true
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_bias = 0.1
+shadow_contact = 0.0
+shadow_reverse_cull_face = false
+editor_only = false
+directional_shadow_mode = 2
+directional_shadow_split_1 = 0.1
+directional_shadow_split_2 = 0.2
+directional_shadow_split_3 = 0.5
+directional_shadow_blend_splits = false
+directional_shadow_normal_bias = 0.8
+directional_shadow_bias_split_scale = 0.25
+directional_shadow_depth_range = 0
+directional_shadow_max_distance = 200.0
+_sections_unfolded = [ "Directional Shadow", "Shadow", "Transform" ]
+
+[node name="Walls" type="Spatial" parent="." index="3"]
+
+editor/display_folded = true
+
+[node name="Wall" type="MeshInstance" parent="Walls" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 1 )
+skeleton = NodePath("..")
+material/0 = null
+
+[node name="Wall2" type="MeshInstance" parent="Walls" index="1"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, 0 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 1 )
+skeleton = NodePath("..")
+material/0 = null
+
+[node name="Wall12" type="MeshInstance" parent="Walls" index="2"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, 2 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 1 )
+skeleton = NodePath("..")
+material/0 = null
+
+[node name="Wall13" type="MeshInstance" parent="Walls" index="3"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, 4 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 1 )
+skeleton = NodePath("..")
+material/0 = null
+
+[node name="Wall14" type="MeshInstance" parent="Walls" index="4"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, 6 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 1 )
+skeleton = NodePath("..")
+material/0 = null
+
+[node name="Wall15" type="MeshInstance" parent="Walls" index="5"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, 6 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 1 )
+skeleton = NodePath("..")
+material/0 = null
+
+[node name="Wall18" type="MeshInstance" parent="Walls" index="6"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, 8 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 1 )
+skeleton = NodePath("..")
+material/0 = null
+
+[node name="Wall16" type="MeshInstance" parent="Walls" index="7"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1, 6 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 1 )
+skeleton = NodePath("..")
+material/0 = null
+
+[node name="Wall17" type="MeshInstance" parent="Walls" index="8"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1, 6 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 1 )
+skeleton = NodePath("..")
+material/0 = null
+
+[node name="Wall3" type="MeshInstance" parent="Walls" index="9"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, -6 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 1 )
+skeleton = NodePath("..")
+material/0 = null
+
+[node name="Wall25" type="MeshInstance" parent="Walls" index="10"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, -8 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 1 )
+skeleton = NodePath("..")
+material/0 = null
+
+[node name="Wall26" type="MeshInstance" parent="Walls" index="11"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1, -8 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 1 )
+skeleton = NodePath("..")
+material/0 = null
+
+[node name="Wall27" type="MeshInstance" parent="Walls" index="12"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1, -8 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 1 )
+skeleton = NodePath("..")
+material/0 = null
+
+[node name="Wall28" type="MeshInstance" parent="Walls" index="13"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1, -8 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 1 )
+skeleton = NodePath("..")
+material/0 = null
+
+[node name="Wall29" type="MeshInstance" parent="Walls" index="14"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 1, -8 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 1 )
+skeleton = NodePath("..")
+material/0 = null
+
+[node name="Wall19" type="MeshInstance" parent="Walls" index="15"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, -6 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 1 )
+skeleton = NodePath("..")
+material/0 = null
+
+[node name="Wall20" type="MeshInstance" parent="Walls" index="16"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -6 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 1 )
+skeleton = NodePath("..")
+material/0 = null
+
+[node name="Wall21" type="MeshInstance" parent="Walls" index="17"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -6 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 1 )
+skeleton = NodePath("..")
+material/0 = null
+
+[node name="Wall22" type="MeshInstance" parent="Walls" index="18"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -8 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 1 )
+skeleton = NodePath("..")
+material/0 = null
+
+[node name="Wall23" type="MeshInstance" parent="Walls" index="19"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -10 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 1 )
+skeleton = NodePath("..")
+material/0 = null
+
+[node name="Wall24" type="MeshInstance" parent="Walls" index="20"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -10 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 1 )
+skeleton = NodePath("..")
+material/0 = null
+
+[node name="Wall4" type="MeshInstance" parent="Walls" index="21"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1, 0 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 1 )
+skeleton = NodePath("..")
+material/0 = null
+
+[node name="Wall5" type="MeshInstance" parent="Walls" index="22"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1, -2 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 1 )
+skeleton = NodePath("..")
+material/0 = null
+
+[node name="Wall6" type="MeshInstance" parent="Walls" index="23"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1, -2 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 1 )
+skeleton = NodePath("..")
+material/0 = null
+
+[node name="Wall7" type="MeshInstance" parent="Walls" index="24"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1, -4 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 1 )
+skeleton = NodePath("..")
+material/0 = null
+
+[node name="Wall8" type="MeshInstance" parent="Walls" index="25"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 1, -4 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 1 )
+skeleton = NodePath("..")
+material/0 = null
+
+[node name="Wall9" type="MeshInstance" parent="Walls" index="26"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 1, -2 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 1 )
+skeleton = NodePath("..")
+material/0 = null
+
+[node name="Wall10" type="MeshInstance" parent="Walls" index="27"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 1, 0 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 1 )
+skeleton = NodePath("..")
+material/0 = null
+
+[node name="Wall11" type="MeshInstance" parent="Walls" index="28"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1, 2 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 1 )
+skeleton = NodePath("..")
+material/0 = null
+
+
